@@ -22,6 +22,30 @@ class CampOrganisationTest {
         Assertions.assertEquals("names cannot be null!", exception.getMessage());
 
     }
+    @Test
+    public void shouldNotAddStudentWhenFirstNameIsNull() {
+        //given
+        String newStudentFirstName = null;
+        String newStudentLastName = "Gerard";
+
+        //when
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> campOrganisation.addStudent(newStudentFirstName, newStudentLastName));
+        //then
+        Assertions.assertEquals("names cannot be null!", exception.getMessage());
+
+    }
+    @Test
+    public void shouldNotAddStudentWhenLastNameIsNull() {
+        //given
+        String newStudentFirstName = "Roman";
+        String newStudentLastName = null;
+
+        //when
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> campOrganisation.addStudent(newStudentFirstName, newStudentLastName));
+        //then
+        Assertions.assertEquals("names cannot be null!", exception.getMessage());
+
+    }
 
     @Test
     public void shouldAddStudentWhenFirstNameAndLastNameAreNotNull() {

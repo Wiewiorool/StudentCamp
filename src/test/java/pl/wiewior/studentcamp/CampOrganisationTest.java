@@ -32,12 +32,13 @@ class CampOrganisationTest {
         //when
         boolean exception = campOrganisation.addStudent(newStudentFirstName, newStudentLastName);
         //then
-        Assertions.assertTrue(exception);
+        assertTrue(exception);
 
     }
 
     @Test
     void transformName() {
+
     }
 
     @Test

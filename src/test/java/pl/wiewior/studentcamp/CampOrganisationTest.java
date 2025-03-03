@@ -37,7 +37,14 @@ class CampOrganisationTest {
     }
 
     @Test
-    void transformName() {
+    public void shouldReturnFirstAndLastNameOfStudent() {
+        //given
+        String newStudentFirstName = "James";
+        String newStudentLastName = "Bond";
+        //when
+        String transformName = campOrganisation.transformName(newStudentFirstName, newStudentLastName);
+        //then
+        Assertions.assertEquals("James Bond", transformName);
 
     }
 

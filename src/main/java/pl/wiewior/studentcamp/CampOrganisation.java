@@ -13,8 +13,8 @@ public class CampOrganisation {
     public boolean addStudent(String newStudentFirstName, String newStudentLastName
     ) {
         if (newStudentFirstName == null
-                || newStudentLastName == null
-        ) {
+                || newStudentLastName == null)
+        {
             throw new IllegalArgumentException("names cannot be null!");
         }
         String transformedName = transformName(newStudentFirstName, newStudentLastName);

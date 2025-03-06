@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +23,7 @@ class CampOrganisationTest {
         Assertions.assertEquals("names cannot be null!", exception.getMessage());
 
     }
+
     @Test
     public void shouldNotAddStudentWhenFirstNameIsNull() {
         //given
@@ -34,6 +36,7 @@ class CampOrganisationTest {
         Assertions.assertEquals("names cannot be null!", exception.getMessage());
 
     }
+
     @Test
     public void shouldNotAddStudentWhenLastNameIsNull() {
         //given
@@ -73,6 +76,65 @@ class CampOrganisationTest {
     }
 
     @Test
-    void getStudent() {
+    public void shouldReturnNullAndLastNameOfStudent() {
+        //given
+        String newStudentFirstName = null;
+        String newStudentLastName = "Bond";
+        //when
+        String transformName = campOrganisation.transformName(newStudentFirstName, newStudentLastName);
+        //then
+        Assertions.assertEquals("null Bond", transformName);
+
     }
+
+    @Test
+    public void shouldReturnFirstNameAndNullOfStudent() {
+        //given
+        String newStudentFirstName = "James";
+        String newStudentLastName = null;
+        //when
+        String transformName = campOrganisation.transformName(newStudentFirstName, newStudentLastName);
+        //then
+        Assertions.assertEquals("James null", transformName);
+
+    }
+
+    @Test
+    public void shouldReturnNullAndNullOfStudent() {
+        //given
+        String newStudentFirstName = null;
+        String newStudentLastName = null;
+        //when
+        String transformName = campOrganisation.transformName(newStudentFirstName, newStudentLastName);
+        //then
+        Assertions.assertEquals("null null", transformName);
+
+    }
+
+
+    @Test
+    void shouldReturnWhenStudentExist() {
+        //given
+        String firstName = "Josef";
+        String lastName = "Adams";
+        campOrganisation.addStudent(firstName,lastName);
+        //when
+        String actual = campOrganisation.getStudent(firstName);
+        //then
+        Assertions.assertEquals("Josef Adams", actual);
+
+    }
+    @Test
+    void shouldReturnWhenStudentNotExist() {
+        //given
+        String firstName = "Josef";
+        String lastName = "Adams";
+        //when
+        String actual = campOrganisation.getStudent(firstName);
+        //then
+        Assertions.assertEquals("", actual);
+
+    }
+
+
 }

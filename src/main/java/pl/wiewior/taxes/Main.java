@@ -11,6 +11,15 @@ public class Main {
         Citizen citizen = new Citizen(BigDecimal.valueOf(10000),"Adam","Smith",relationChild);
         System.out.println(citizen.calculateYearlyTax());
 
+        Citizen citizen1 =  new Citizen.CitizenBuilder()
+                .firstName("Joe")
+                .lastName("Greg")
+                .monthlySalary(BigDecimal.valueOf(5000))
+                .taxWay(singleRelation)
+                .build();
+
+        System.out.println(citizen1.calculateYearlyTax());
+
 
 
     }

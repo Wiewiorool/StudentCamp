@@ -11,10 +11,10 @@ class InRelationshipChildLessTest {
     private InRelationshipChildLess inRelationshipChildLess = new InRelationshipChildLess();
 
     @Test
-    void calculateTaxWhen() {
+    void calculateTax() {
         //given
-        BigDecimal salary = BigDecimal.valueOf(2500);
-        BigDecimal expected = BigDecimal.valueOf(625.00).setScale(2);
+        BigDecimal salary = BigDecimal.valueOf(10000);
+        BigDecimal expected = salary.multiply(BigDecimal.valueOf(0.25));
 
         //when
         BigDecimal actual = inRelationshipChildLess.calculateTax(salary);

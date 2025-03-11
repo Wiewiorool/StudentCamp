@@ -14,7 +14,7 @@ public class Main {
         Citizen citizen1 =  new Citizen.CitizenBuilder()
                 .firstName("Joe")
                 .lastName("Greg")
-                .monthlySalary(BigDecimal.valueOf(5000))
+                .monthlySalary(BigDecimal.valueOf(10000))
                 .taxWay(singleRelation)
                 .build();
 

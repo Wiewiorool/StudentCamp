@@ -1,7 +1,6 @@
 package pl.wiewior.taxes;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,9 +10,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InRelationshipChildLessTest {
-    private InRelationshipChildLess inRelationshipChildLess = new InRelationshipChildLess();
-    private static final BigDecimal tax = BigDecimal.valueOf(0.25);
+class InRelationshipHasChildTest {
+    private InRelationshipHasChild inRelationshipHasChild = new InRelationshipHasChild();
+    private static final BigDecimal tax = BigDecimal.valueOf(0.2);
 
     public static Stream<Arguments> data() {
         return Stream.of(
@@ -28,7 +27,7 @@ class InRelationshipChildLessTest {
     void calculateTax(BigDecimal salary, BigDecimal tax) {
         //given
         //when
-        BigDecimal actual = inRelationshipChildLess.calculateTax(salary);
+        BigDecimal actual = inRelationshipHasChild.calculateTax(salary);
         //then
         Assertions.assertEquals(salary.multiply(tax).setScale(2), actual);
     }

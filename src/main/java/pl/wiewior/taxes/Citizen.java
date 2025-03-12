@@ -20,5 +20,14 @@ public class Citizen {
         return yearlyTax;
     }
 
+    @Override
+    public String toString() {
+        return "Report:\n" +
+                "Name: " + firstName + "\n" +
+                "Surname: " + lastName + "\n" +
+                "Salary: " + monthlySalary + " \n" +
+                //Salary need to be yearly. Still try to figure it out.
+                "Yearly tax: " + calculateYearlyTax() + " \n";
+    }
 
 }
